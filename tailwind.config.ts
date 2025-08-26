@@ -128,6 +128,18 @@ export default {
 				'bg-shift': {
 					'0%, 100%': { filter: 'hue-rotate(0deg)' },
 					'50%': { filter: 'hue-rotate(25deg)' }
+				},
+				'gentle-glow': {
+					'0%, 100%': { 
+						opacity: '1', 
+						transform: 'scale(1)',
+						boxShadow: '0 0 10px hsl(var(--success) / 0.3)'
+					},
+					'50%': { 
+						opacity: '0.7', 
+						transform: 'scale(1.1)',
+						boxShadow: '0 0 20px hsl(var(--success) / 0.5)'
+					}
 				}
 			},
 			animation: {
@@ -138,7 +150,8 @@ export default {
 				'float': 'float 3s ease-in-out infinite',
 				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
 				'marquee': 'marquee 30s linear infinite',
-				'bg-shift': 'bg-shift 15s ease-in-out infinite'
+				'bg-shift': 'bg-shift 15s ease-in-out infinite',
+				'gentle-glow': 'gentle-glow 2s ease-in-out infinite'
 			}
 		}
 	},
