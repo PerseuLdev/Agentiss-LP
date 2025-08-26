@@ -103,7 +103,7 @@ function ChatMockup() {
       {/* Header */}
       <div className="flex items-center gap-3 pb-4 border-b border-border/30">
         <div className="w-10 h-10 rounded-full bg-success/30 border-2 border-success/50 flex items-center justify-center">
-          <div className="w-3 h-3 bg-success rounded-full animate-glow-pulse" />
+          <div className="w-3 h-3 bg-success rounded-full" />
         </div>
         <div>
           <div className="font-semibold">Clínica Vida — Atendimento</div>
