@@ -151,9 +151,9 @@ export default {
 				'glow-pulse': 'glow-pulse 4s ease-in-out infinite',
 				'marquee': 'marquee 30s linear infinite',
 				'bg-shift': 'bg-shift 15s ease-in-out infinite',
-				'gentle-glow': 'gentle-glow 2s ease-in-out infinite'
-			}
-		}
-	},
-	plugins: [require("tailwindcss-animate")],
+                                'gentle-glow': 'gentle-glow 6s ease-in-out infinite'
+                        }
+                }
+        },
+        plugins: [require("tailwindcss-animate")],
 } satisfies Config;
