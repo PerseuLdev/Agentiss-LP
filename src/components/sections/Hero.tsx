@@ -109,7 +109,7 @@ export default function Hero() {
 
 function ChatMockup() {
   return (
-    <Card className="relative bg-gradient-card backdrop-blur-xl border-border/20 p-4 sm:p-6 shadow-card hover:shadow-glow transition-all duration-500 transform hover:scale-[1.02] animate-float">
+    <Card className="relative bg-gradient-card backdrop-blur-xl border-border/20 p-4 sm:p-6 shadow-card hover:shadow-glow transition-all duration-600 transform hover:scale-[1.02] animate-float">
       {/* Header */}
       <div className="flex items-center gap-3 pb-4 border-b border-border/30">
         <div className="w-10 h-10 rounded-full bg-success/30 border-2 border-success/50 flex items-center justify-center">
