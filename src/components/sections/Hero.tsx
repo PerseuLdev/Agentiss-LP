@@ -27,7 +27,7 @@ export default function Hero() {
           <div className="space-y-4 sm:space-y-6 lg:space-y-8 animate-slide-up">
             <div className="space-y-3 sm:space-y-4 lg:space-y-6">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                Atendentes de IA que{" "}
+                Agentes de IA que{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   vendem 24/7
                 </span>

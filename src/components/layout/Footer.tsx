@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <div className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} AGENTISS — Atendentes de IA & Landing Pages
+              © {new Date().getFullYear()} AGENTISS — Agentes de IA & Landing Pages
             </div>
           </div>
           
