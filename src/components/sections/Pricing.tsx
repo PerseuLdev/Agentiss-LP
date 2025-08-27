@@ -4,6 +4,14 @@ import { Button } from "@/components/ui/button";
 import { ShineButton } from "@/components/ui/button-variants";
 import { Badge } from "@/components/ui/badge";
 
+type Plan = {
+  name: string;
+  tier: "basic" | "pro" | "premium";
+  features: string[];
+  limit: string;
+  featured: boolean;
+};
+
 export default function Pricing() {
   const [channel, setChannel] = useState<'wpp' | 'wpp_ig' | 'wpp_ig_fb'>('wpp');
   const [contract, setContract] = useState<'1y' | '2y'>('1y');
@@ -28,7 +36,7 @@ export default function Pricing() {
     return contract === '2y' ? Math.round(basePrice * 0.85) : basePrice;
   };
 
-  const plans = [
+  const plans: Plan[] = [
     {
       name: 'Básico — Atende+',
       tier: 'basic' as const,
@@ -72,14 +80,14 @@ export default function Pricing() {
           {/* Channel Selector */}
           <div className="flex flex-wrap items-center gap-3 w-full justify-center md:w-auto">
             <span className="text-sm text-muted-foreground">Canal:</span>
-            <div className="flex bg-muted/20 backdrop-blur-sm border border-border/30 rounded-lg p-1">
+            <div className="flex flex-col sm:flex-row w-full sm:w-auto bg-muted/20 backdrop-blur-sm border border-border/30 rounded-lg p-1 gap-1">
               {Object.entries(channelLabels).map(([key, label]) => (
                 <Button
                   key={key}
                   variant={channel === key ? "default" : "ghost"}
                   size="sm"
                   onClick={() => setChannel(key as typeof channel)}
-                  className={channel === key ? "bg-primary shadow-primary" : ""}
+                  className={`w-full sm:w-auto ${channel === key ? "bg-primary shadow-primary" : ""}`}
                 >
                   {label}
                 </Button>
@@ -90,12 +98,12 @@ export default function Pricing() {
           {/* Contract Selector */}
           <div className="flex flex-wrap items-center gap-3 w-full justify-center md:w-auto">
             <span className="text-sm text-muted-foreground">Tempo:</span>
-            <div className="flex bg-muted/20 backdrop-blur-sm border border-border/30 rounded-lg p-1">
+            <div className="flex bg-muted/20 backdrop-blur-sm border border-border/30 rounded-lg p-1 gap-1">
               <Button
                 variant={contract === '1y' ? "default" : "ghost"}
                 size="sm"
                 onClick={() => setContract('1y')}
-                className={contract === '1y' ? "bg-primary shadow-primary" : ""}
+                className={`w-full sm:w-auto ${contract === '1y' ? "bg-primary shadow-primary" : ""}`}
               >
                 1 ano
               </Button>
@@ -103,22 +111,13 @@ export default function Pricing() {
                 variant={contract === '2y' ? "default" : "ghost"}
                 size="sm"
                 onClick={() => setContract('2y')}
-                className={contract === '2y' ? "bg-success shadow-primary" : ""}
+                className={`w-full sm:w-auto flex items-center gap-1 ${contract === '2y' ? "bg-success shadow-primary" : ""}`}
               >
-                2 anos -15%
+                <span>2 anos</span>
+                <Badge className="ml-1 bg-success/20 text-success">-15%</Badge>
               </Button>
             </div>
           </div>
-        </div>
-
-        {/* Contract Info */}
-        <div className="text-center mb-8">
-          <p className="text-sm text-muted-foreground">
-            {contract === '2y'
-              ? `Economize 15%. Contrato de 2 anos: Básico R$ ${Math.round(basePrices[channel].basic * 24 * 0.85)}, Pro R$ ${Math.round(basePrices[channel].pro * 24 * 0.85)}, Premium R$ ${Math.round(basePrices[channel].premium * 24 * 0.85)}.`
-              : `Contrato de 1 ano: Básico R$ ${basePrices[channel].basic * 12}, Pro R$ ${basePrices[channel].pro * 12}, Premium R$ ${basePrices[channel].premium * 12}.`
-            }
-          </p>
         </div>
 
         {/* Pricing Cards */}
@@ -176,7 +175,7 @@ function PricingCard({
   contract,
   whatsappLink
 }: {
-  plan: any;
+  plan: Plan;
   price: number;
   channel: string;
   contract: '1y' | '2y';
