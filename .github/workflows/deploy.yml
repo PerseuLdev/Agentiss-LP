@@ -1,0 +1,37 @@
+name: Deploy Agentiss via FTP (Hostinger)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Build (Vite)
+        run: npm run build   # gera dist/
+
+      - name: Conferir dist
+        run: ls -la dist || true
+
+      - name: Deploy FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server:   ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          local-dir: dist/
+          server-dir: public_html/          # <- Agentiss (domínio raiz)
+          dangerous-clean-slate: true
+          exclude: |
+            .htaccess                       # não apaga seu .htaccess
