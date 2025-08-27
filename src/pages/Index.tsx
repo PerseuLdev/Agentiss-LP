@@ -3,6 +3,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import MarqueeNiches from "@/components/sections/MarqueeNiches";
+import LandingPages from "@/components/sections/LandingPages";
 import Demos from "@/components/sections/Demos";
 import Features from "@/components/sections/Features";
 import Pricing from "@/components/sections/Pricing";
@@ -46,6 +47,7 @@ const Index = () => {
       <main>
         <Hero />
         <MarqueeNiches />
+        <LandingPages />
         <Demos />
         <Features />
         <Pricing />
