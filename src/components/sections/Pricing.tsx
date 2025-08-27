@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function Pricing() {
   const [channel, setChannel] = useState<'wpp' | 'wpp_ig' | 'wpp_ig_fb'>('wpp');
-  const [billing, setBilling] = useState<'monthly' | 'yearly'>('monthly');
+  const [contract, setContract] = useState<'1y' | '2y'>('1y');
 
   const whatsappLink = (message: string) => 
     `https://wa.me/5514991071072?text=${encodeURIComponent(message)}`;
@@ -25,7 +25,7 @@ export default function Pricing() {
 
   const getPrice = (tier: keyof typeof basePrices['wpp']) => {
     const basePrice = basePrices[channel][tier];
-    return billing === 'yearly' ? Math.round(basePrice * 0.85) : basePrice;
+    return contract === '2y' ? Math.round(basePrice * 0.85) : basePrice;
   };
 
   const plans = [
@@ -61,16 +61,16 @@ export default function Pricing() {
             <span className="bg-gradient-primary bg-clip-text text-transparent">canais</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Selecione o canal e a cobrança. Limites: <strong className="text-foreground">Básico até 300</strong>, 
+            Selecione o canal e o tempo de contrato. Limites: <strong className="text-foreground">Básico até 300</strong>,
             <strong className="text-foreground"> Pro até 1200</strong>, 
             <strong className="text-foreground"> Premium até 3000</strong> atendimentos/mês.
           </p>
         </div>
 
         {/* Controls */}
-        <div className="flex flex-wrap justify-center gap-6 mb-8">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
           {/* Channel Selector */}
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3 w-full justify-center md:w-auto">
             <span className="text-sm text-muted-foreground">Canal:</span>
             <div className="flex bg-muted/20 backdrop-blur-sm border border-border/30 rounded-lg p-1">
               {Object.entries(channelLabels).map(([key, label]) => (
@@ -87,36 +87,36 @@ export default function Pricing() {
             </div>
           </div>
 
-          {/* Billing Selector */}
-          <div className="flex items-center gap-3">
-            <span className="text-sm text-muted-foreground">Cobrança:</span>
+          {/* Contract Selector */}
+          <div className="flex flex-wrap items-center gap-3 w-full justify-center md:w-auto">
+            <span className="text-sm text-muted-foreground">Tempo:</span>
             <div className="flex bg-muted/20 backdrop-blur-sm border border-border/30 rounded-lg p-1">
               <Button
-                variant={billing === 'monthly' ? "default" : "ghost"}
+                variant={contract === '1y' ? "default" : "ghost"}
                 size="sm"
-                onClick={() => setBilling('monthly')}
-                className={billing === 'monthly' ? "bg-primary shadow-primary" : ""}
+                onClick={() => setContract('1y')}
+                className={contract === '1y' ? "bg-primary shadow-primary" : ""}
               >
-                Mensal
+                1 ano
               </Button>
               <Button
-                variant={billing === 'yearly' ? "default" : "ghost"}
+                variant={contract === '2y' ? "default" : "ghost"}
                 size="sm"
-                onClick={() => setBilling('yearly')}
-                className={billing === 'yearly' ? "bg-success shadow-primary" : ""}
+                onClick={() => setContract('2y')}
+                className={contract === '2y' ? "bg-success shadow-primary" : ""}
               >
-                Anual -15%
+                2 anos -15%
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Billing Info */}
+        {/* Contract Info */}
         <div className="text-center mb-8">
           <p className="text-sm text-muted-foreground">
-            {billing === 'yearly' 
-              ? `Economize 15%. Cobrança anual: Básico R$ ${Math.round(basePrices[channel].basic * 12 * 0.85)}, Pro R$ ${Math.round(basePrices[channel].pro * 12 * 0.85)}, Premium R$ ${Math.round(basePrices[channel].premium * 12 * 0.85)}.`
-              : 'Cancele quando quiser.'
+            {contract === '2y'
+              ? `Economize 15%. Contrato de 2 anos: Básico R$ ${Math.round(basePrices[channel].basic * 24 * 0.85)}, Pro R$ ${Math.round(basePrices[channel].pro * 24 * 0.85)}, Premium R$ ${Math.round(basePrices[channel].premium * 24 * 0.85)}.`
+              : `Contrato de 1 ano: Básico R$ ${basePrices[channel].basic * 12}, Pro R$ ${basePrices[channel].pro * 12}, Premium R$ ${basePrices[channel].premium * 12}.`
             }
           </p>
         </div>
@@ -129,7 +129,7 @@ export default function Pricing() {
               plan={plan}
               price={getPrice(plan.tier)}
               channel={channelLabels[channel]}
-              billing={billing}
+              contract={contract}
               whatsappLink={whatsappLink}
             />
           ))}
@@ -169,20 +169,20 @@ export default function Pricing() {
   );
 }
 
-function PricingCard({ 
-  plan, 
-  price, 
-  channel, 
-  billing, 
-  whatsappLink 
-}: { 
-  plan: any; 
-  price: number; 
-  channel: string; 
-  billing: string;
+function PricingCard({
+  plan,
+  price,
+  channel,
+  contract,
+  whatsappLink
+}: {
+  plan: any;
+  price: number;
+  channel: string;
+  contract: '1y' | '2y';
   whatsappLink: (message: string) => string;
 }) {
-  const message = `Quero o Plano ${plan.name} (${channel}) no modo ${billing === 'monthly' ? 'Mensal' : 'Anual -15%'}. Limite: ${plan.limit}. Origem: Planos agentiss.shop.`;
+  const message = `Quero o Plano ${plan.name} (${channel}) no contrato ${contract === '1y' ? '1 ano' : '2 anos -15%'}. Limite: ${plan.limit}. Origem: Planos agentiss.shop.`;
 
   return (
     <Card className={`relative bg-gradient-card backdrop-blur-xl border-border/20 p-6 shadow-card hover:shadow-glow hover:scale-105 transition-all duration-500 ${plan.featured ? 'border-primary/30' : ''}`}>
