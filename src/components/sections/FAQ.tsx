@@ -58,11 +58,11 @@ function FAQItem({ faq }: { faq: { q: string; a: string } }) {
     <Card className="bg-gradient-card backdrop-blur-xl border-border/20 overflow-hidden">
       <Button
         variant="ghost"
-        className="w-full justify-between text-left p-6 h-auto hover:bg-transparent"
+        className="w-full justify-between text-left p-6 h-auto hover:bg-transparent whitespace-normal"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="font-semibold text-lg">{faq.q}</span>
-        <ChevronDown 
+        <span className="font-semibold text-lg flex-1 text-left">{faq.q}</span>
+        <ChevronDown
           className={`w-5 h-5 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
         />
       </Button>
