@@ -13,7 +13,7 @@ import Contact from "@/components/sections/Contact";
 const Index = () => {
   // SEO optimization
   useEffect(() => {
-    document.title = "AGENTISS — Atendentes de IA (Atendimento 24/7) & Landing Pages";
+    document.title = "AGENTISS — Agentes de IA (Atendimento 24/7) & Landing Pages";
     
     const setMeta = (name: string, content: string, isProperty = false) => {
       const selector = isProperty ? `meta[property='${name}']` : `meta[name='${name}']`;
@@ -32,9 +32,9 @@ const Index = () => {
       meta.setAttribute('content', content);
     };
 
-    setMeta('description', 'Atendentes de IA no WhatsApp, Instagram e Facebook: tiram dúvidas, marcam/confirmam consultas e qualificam leads. Também criamos Landing Pages que direcionam para as redes e aumentam conversões.');
+    setMeta('description', 'Agentes de IA no WhatsApp, Instagram e Facebook: tiram dúvidas, marcam/confirmam consultas e qualificam leads. Também criamos Landing Pages que direcionam para as redes e aumentam conversões.');
     setMeta('keywords', 'atendimento automático, atendente virtual, agendamento WhatsApp, chatbot Instagram, chatbot Facebook, landing page, captação de leads');
-    setMeta('og:title', 'AGENTISS — Atendentes de IA & Landing Pages', true);
+    setMeta('og:title', 'AGENTISS — Agentes de IA & Landing Pages', true);
     setMeta('og:description', 'Atendimento 24/7 com marcação de consultas e LPs que convertem.', true);
     setMeta('og:type', 'website', true);
   }, []);
