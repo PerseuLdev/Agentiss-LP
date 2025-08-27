@@ -148,7 +148,7 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-up': 'slide-up 0.6s ease-out',
 				'float': 'float 3s ease-in-out infinite',
-				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+				'glow-pulse': 'glow-pulse 4s ease-in-out infinite',
 				'marquee': 'marquee 30s linear infinite',
 				'bg-shift': 'bg-shift 15s ease-in-out infinite',
 				'gentle-glow': 'gentle-glow 2s ease-in-out infinite'
