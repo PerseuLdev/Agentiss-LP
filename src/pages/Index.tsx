@@ -5,6 +5,8 @@ import Hero from "@/components/sections/Hero";
 import MarqueeNiches from "@/components/sections/MarqueeNiches";
 import Demos from "@/components/sections/Demos";
 import Features from "@/components/sections/Features";
+import LandingPages from "@/components/sections/LandingPages";
+import CRMSection from "@/components/sections/CRMSection";
 import Pricing from "@/components/sections/Pricing";
 import Testimonials from "@/components/sections/Testimonials";
 import FAQ from "@/components/sections/FAQ";
@@ -48,6 +50,8 @@ const Index = () => {
         <MarqueeNiches />
         <Demos />
         <Features />
+        <LandingPages />
+        <CRMSection />
         <Pricing />
         <Testimonials />
         <FAQ />
