@@ -1,4 +1,4 @@
-name: Deploy Lovable via FTP na Hostinger
+name: Deploy Agentiss via FTP na Hostinger
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
           node-version: '18'
 
       - name: Instalar dependências
-        run: npm install
+        run: npm ci
 
       - name: Build do projeto
         run: npm run build
@@ -26,17 +26,39 @@ jobs:
       - name: Mostrar arquivos gerados
         run: ls -al dist/
 
-      - name: Deploy FTP para Hostinger
+      - name: Deploy FTP para Hostinger (sem apagar nada)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
           port: 21
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
+
+          # pasta local com o build
           local-dir: dist/
-          server-dir: /
-          dangerous-clean-slate: true
-          dry-run: false
+
+          # caminho do domínio principal no painel Hostinger
+          server-dir: /domains/agentiss.shop/public_html/
+
+          # NÃO limpar o servidor antes do upload
+          dangerous-clean-slate: false
+
+          # logs úteis para depurar
           log-level: verbose
+          dry-run: false
+
+          # preservar/ignorar estes itens no servidor (não apaga e não substitui)
           exclude: |
-            .htaccess                       # não apaga seu .htaccess
+            **/.git*
+            **/.github/**
+            **/node_modules/**
+            **/*.map
+            .htaccess
+            robots.txt
+            sitemap.xml
+            .well-known/**
+            backups/**
+            storage/**
+            uploads/**
+            analytics/**
+            _private/**
