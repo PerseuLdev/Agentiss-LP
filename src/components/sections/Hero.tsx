@@ -1,99 +1,94 @@
+import { ShineButton, OutlineButton } from "@/components/ui/button-variants";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { BackgroundPaths } from "@/components/ui/background-paths";
-import { Phone, MessageCircle, Volume2, BarChart3, Clock, Zap } from "lucide-react";
 
-const Hero = () => {
+export default function Hero() {
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const whatsappLink = (message: string) => {
-    const encodedMessage = encodeURIComponent(message);
-    return `https://wa.me/5511999999999?text=${encodedMessage}`;
-  };
-
-  const primaryAction = (
-    <Button 
-      variant="ghost"
-      className="rounded-[1.15rem] px-8 py-6 text-lg font-semibold backdrop-blur-md 
-      bg-white/95 hover:bg-white/100 dark:bg-black/95 dark:hover:bg-black/100 
-      text-black dark:text-white transition-all duration-300 
-      hover:-translate-y-0.5 border border-black/10 dark:border-white/10
-      hover:shadow-md dark:hover:shadow-neutral-800/50"
-      onClick={() => scrollToSection('pricing')}
-    >
-      <span className="opacity-90 hover:opacity-100 transition-opacity">
-        Ver Todos os Planos
-      </span>
-      <span className="ml-3 opacity-70 hover:opacity-100 hover:translate-x-1.5 transition-all duration-300">
-        →
-      </span>
-    </Button>
-  );
-
-  const secondaryAction = (
-    <Button 
-      variant="outline" 
-      size="lg"
-      className="px-8 py-6 text-lg font-semibold border-2 hover:bg-primary/5 transition-all duration-300 bg-background/50 backdrop-blur-sm"
-      onClick={() => window.open(whatsappLink('Olá! Gostaria de solicitar uma demonstração dos serviços da AGENTISS.'), '_blank')}
-    >
-      Solicitar Demo Gratuita
-    </Button>
-  );
+  const whatsappLink = (message: string) =>
+    `https://wa.me/5514991071072?text=${encodeURIComponent(message)}`;
 
   return (
-    <section className="relative">
-      <BackgroundPaths
-        title="Automatize seu atendimento e multiplique o faturamento"
-        subtitle="Agentes de IA no WhatsApp, Instagram e Facebook com landing pages que convertem. Mais comodidade para você e mais vendas para o seu negócio."
-        primaryAction={primaryAction}
-        secondaryAction={secondaryAction}
+    <section className="relative py-8 sm:py-12 lg:py-20 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-hero animate-bg-shift opacity-60" />
+      <div
+        className="absolute inset-0 opacity-30"
+        style={{
+          background:
+            "radial-gradient(1000px 500px at 30% 20%, rgba(99,102,241,0.15), transparent 60%), radial-gradient(900px 400px at 70% 80%, rgba(168,85,247,0.12), transparent 60%)",
+        }}
       />
-      
-      {/* Stats Section */}
-      <div className="relative bg-gradient-to-br from-background to-muted/20 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <Card className="p-6 text-center border-primary/20 bg-primary/5 backdrop-blur-sm hover:bg-primary/10 transition-all duration-300">
-              <div className="flex items-center justify-center w-12 h-12 bg-primary/20 rounded-xl mx-auto mb-4">
-                <Clock className="h-6 w-6 text-primary" />
-              </div>
-              <p className="text-3xl font-bold text-primary mb-2">87%</p>
-              <p className="text-sm text-muted-foreground">tempo economizado</p>
-            </Card>
-            
-            <Card className="p-6 text-center border-primary/20 bg-primary/5 backdrop-blur-sm hover:bg-primary/10 transition-all duration-300">
-              <div className="flex items-center justify-center w-12 h-12 bg-primary/20 rounded-xl mx-auto mb-4">
-                <Zap className="h-6 w-6 text-primary" />
-              </div>
-              <p className="text-3xl font-bold text-primary mb-2">&lt; 3s</p>
-              <p className="text-sm text-muted-foreground">tempo de resposta</p>
-            </Card>
-            
-            <Card className="p-6 text-center border-primary/20 bg-primary/5 backdrop-blur-sm hover:bg-primary/10 transition-all duration-300">
-              <div className="flex items-center justify-center w-12 h-12 bg-primary/20 rounded-xl mx-auto mb-4">
-                <BarChart3 className="h-6 w-6 text-primary" />
-              </div>
-              <p className="text-3xl font-bold text-primary mb-2">+340%</p>
-              <p className="text-sm text-muted-foreground">mais conversões</p>
-            </Card>
-            
-            <Card className="p-6 text-center border-primary/20 bg-primary/5 backdrop-blur-sm hover:bg-primary/10 transition-all duration-300">
-              <div className="flex items-center justify-center w-12 h-12 bg-primary/20 rounded-xl mx-auto mb-4">
-                <MessageCircle className="h-6 w-6 text-primary" />
-              </div>
-              <p className="text-3xl font-bold text-primary mb-2">24/7</p>
-              <p className="text-sm text-muted-foreground">disponibilidade</p>
-            </Card>
+
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+          {/* Content */}
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8 animate-slide-up">
+            <div className="space-y-3 sm:space-y-4 lg:space-y-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                Agentes de IA que{" "}
+                <span className="bg-gradient-primary bg-clip-text text-transparent">
+                  vendem 24/7
+                </span>
+              </h1>
+              <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+                Tire dúvidas em tempo real,{" "}
+                <strong className="text-foreground">
+                  marque e confirme consultas
+                </strong>
+                ,<strong className="text-foreground"> qualifique leads</strong>{" "}
+                e integre com WhatsApp, Instagram e Facebook. Também criamos{" "}
+                <strong className="text-foreground">Landing Pages</strong> que
+                direcionam para as redes e aumentam a conversão.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <ShineButton
+                onClick={() => scrollToSection("pricing")}
+                size="lg"
+                className="text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 w-full sm:w-auto"
+              >
+                Ver Planos
+              </ShineButton>
+              <OutlineButton
+                size="lg"
+                className="text-sm sm:text-base lg:text-lg px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 w-full sm:w-auto"
+                onClick={() =>
+                  window.open(
+                    whatsappLink(
+                      "Olá, vi a demo no hero da agentiss.shop e quero testar agora. Objetivo: marcar consultas/qualificar leads. Negócio: [digite]."
+                    ),
+                    "_blank"
+                  )
+                }
+              >
+                Pedir Demo
+              </OutlineButton>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6 max-w-md">
+              <Card className="p-2.5 sm:p-3 lg:p-4 bg-card/50 backdrop-blur-sm border-border/50">
+                <div className="text-xs sm:text-sm text-muted-foreground">
+                  Tempo economizado (média)
+                </div>
+                <div className="text-xl sm:text-2xl font-bold text-primary">~12h</div>
+                <div className="text-[10px] sm:text-xs text-muted-foreground">por semana</div>
+              </Card>
+              <Card className="p-2.5 sm:p-3 lg:p-4 bg-card/50 backdrop-blur-sm border-border/50">
+                <div className="text-xs sm:text-sm text-muted-foreground">
+                  SLA primeira resposta
+                </div>
+                <div className="text-xl sm:text-2xl font-bold text-success">&lt; 5s</div>
+                <div className="text-[10px] sm:text-xs text-muted-foreground">sempre</div>
+              </Card>
+            </div>
           </div>
-          
+
           {/* Chat Mockup */}
-          <div className="mt-16 flex justify-center">
+          <div className="animate-fade-in">
             <ChatMockup />
           </div>
         </div>
@@ -227,4 +222,3 @@ function MetricCard({ label, value }: { label: string; value: string }) {
   );
 }
 
-export default Hero;
