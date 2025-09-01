@@ -17,6 +17,7 @@ export default function Header() {
   const navItems = [
     { label: 'Atendimento', id: 'features' },
     { label: 'Demos', id: 'demos' },
+    { label: 'LP & CRM', id: 'pricing-lp-crm' },
     { label: 'Planos', id: 'pricing' },
     { label: 'Casos', id: 'testimonials' },
     { label: 'FAQ', id: 'faq' },

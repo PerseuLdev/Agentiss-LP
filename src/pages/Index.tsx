@@ -7,6 +7,7 @@ import Demos from "@/components/sections/Demos";
 import Features from "@/components/sections/Features";
 import LandingPages from "@/components/sections/LandingPages";
 import CRMSection from "@/components/sections/CRMSection";
+import PricingLpCrm from "@/components/sections/PricingLpCrm";
 import Pricing from "@/components/sections/Pricing";
 import Testimonials from "@/components/sections/Testimonials";
 import FAQ from "@/components/sections/FAQ";
@@ -52,6 +53,7 @@ const Index = () => {
         <Features />
         <LandingPages />
         <CRMSection />
+        <PricingLpCrm />
         <Pricing />
         <Testimonials />
         <FAQ />
