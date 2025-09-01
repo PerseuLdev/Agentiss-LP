@@ -108,14 +108,14 @@ export function BackgroundPaths({
                     </h1>
 
                     {subtitle && (
-                        <motion.p 
+                        <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1, duration: 0.8 }}
                             className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed"
                         >
                             {subtitle}
-                        </motion.p>
+                        </motion.h2>
                     )}
 
                     <motion.div 
