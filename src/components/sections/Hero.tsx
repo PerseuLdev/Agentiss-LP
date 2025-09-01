@@ -49,8 +49,8 @@ const Hero = () => {
   return (
     <section className="relative">
       <BackgroundPaths
-        title="Automatize Vendas Aumente Faturamento"
-        subtitle="Agentes de IA no WhatsApp, Instagram e Facebook + Landing Pages que convertem. Atendimento 24/7, agendamentos automáticos e mais tempo para focar no que realmente importa: crescer seu negócio."
+        title="Automatize seu atendimento e multiplique o faturamento"
+        subtitle="Agentes de IA no WhatsApp, Instagram e Facebook com landing pages que convertem. Mais comodidade para você e mais vendas para o seu negócio."
         primaryAction={primaryAction}
         secondaryAction={secondaryAction}
       />
