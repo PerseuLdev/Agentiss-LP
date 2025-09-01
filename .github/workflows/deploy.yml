@@ -39,8 +39,8 @@ jobs:
           # pasta local com o build
           local-dir: dist/
 
-          # caminho do domínio principal no painel Hostinger
-          server-dir: /domains/agentiss.shop/public_html/
+          # caminho do domínio principal no painel Hostinger (relativo à raiz do FTP)
+          server-dir: domains/agentiss.shop/public_html/
 
           # NÃO limpar o servidor antes do upload
           dangerous-clean-slate: false
