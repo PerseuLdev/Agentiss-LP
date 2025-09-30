@@ -49,12 +49,11 @@ export default function LandingPages() {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
-            Landing Pages que{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">convertem</span>
+            Sem landing page, seu tráfego evapora. Vamos mudar isso
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Páginas otimizadas para capturar leads e direcionar para WhatsApp, Instagram ou Facebook. 
-            Design responsivo e copy persuasiva.
+            Construímos páginas focadas em conversão para não perder quem já clicou no seu anúncio. Layouts rápidos, provas
+            sociais e chamadas claras que levam o lead direto para WhatsApp, Instagram ou automações de vendas.
           </p>
         </div>
 

@@ -27,20 +27,17 @@ export default function Hero() {
           <div className="space-y-4 sm:space-y-6 lg:space-y-8 animate-slide-up">
             <div className="space-y-3 sm:space-y-4 lg:space-y-6">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                Agentes de IA que{" "}
+                Pare de deixar dinheiro na mesa com atendimentos manuais
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
-                  vendem 24/7
+                  . Venda 24/7
                 </span>
               </h1>
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                Tire dúvidas em tempo real,{" "}
-                <strong className="text-foreground">
-                  marque e confirme consultas
-                </strong>
-                ,<strong className="text-foreground"> qualifique leads</strong>{" "}
-                e integre com WhatsApp, Instagram e Facebook. Também criamos{" "}
-                <strong className="text-foreground">Landing Pages</strong> que
-                direcionam para as redes e aumentam a conversão.
+                Seus leads não podem esperar um horário comercial. Automatizamos o atendimento para{" "}
+                <strong className="text-foreground">marcar e confirmar consultas</strong>,{" "}
+                <strong className="text-foreground">qualificar interessados</strong>{" "}
+                e direcionar cada contato para o canal certo. Junto com uma{" "}
+                <strong className="text-foreground">Landing Page</strong> construída para conversão, você captura vendas que hoje escapam.
               </p>
             </div>
 
