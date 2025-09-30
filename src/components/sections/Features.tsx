@@ -34,12 +34,12 @@ export default function Features() {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
-            Atendimento automático que{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">resolve</span>
+            Atendimentos parados = vendas perdidas. Automatize agora
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Respostas imediatas, qualificação de leads, <strong className="text-foreground">agendamento/confirmação</strong> e 
-            integrações com CRM/Calendário. Multicanal: WhatsApp, Instagram e Facebook.
+            Enquanto você responde manualmente, seus concorrentes já converteram. Respostas imediatas,{" "}
+            <strong className="text-foreground">agendamento/confirmação automáticos</strong>, qualificação de leads e integrações
+            com CRM/Calendário garantem que nenhum lead quente esfrie por falta de retorno.
           </p>
         </div>
 

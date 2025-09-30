@@ -76,12 +76,11 @@ export default function CRMSection() {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">
-            CRMs personalizados que{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">organizam</span>
+            Planilhas travam seu crescimento. Organize tudo em um CRM sob medida
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Sistemas de gestão sob medida para seu negócio. Integração completa com 
-            agentes de IA, automações e relatórios inteligentes.
+            Pare de caçar dados em arquivos diferentes. Centralize leads, atendimentos e finanças com automações conectadas
+            aos agentes de IA, relatórios em tempo real e gatilhos que mantêm sua equipe focada no que gera receita.
           </p>
         </div>
 
