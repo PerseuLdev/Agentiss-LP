@@ -9,10 +9,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Clonar o repositório
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js 18
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -34,10 +34,11 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           local-dir: dist/
-          server-dir: public_html/
+          # raiz do FTP já é public_html
+          server-dir: /
           dangerous-clean-slate: false
           dry-run: false
           log-level: verbose
           exclude: |
-            **/subdomains/**
+            subdomains/**
             .htaccess
