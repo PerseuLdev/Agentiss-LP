@@ -1,4 +1,4 @@
-name: Deploy Lovable via FTP na Hostinger
+name: Deploy Agentiss via FTP (Hostinger)
 
 on:
   push:
@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clonar o repositório
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Configurar Node.js 18
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
       - name: Instalar dependências
-        run: npm install
+        run: npm ci
 
       - name: Build do projeto
         run: npm run build
@@ -34,9 +34,10 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           local-dir: dist/
-          server-dir: /
-          dangerous-clean-slate: true
+          server-dir: public_html/
+          dangerous-clean-slate: false
           dry-run: false
           log-level: verbose
           exclude: |
-            .htaccess                       # não apaga seu .htaccess
+            **/subdomains/**
+            .htaccess
